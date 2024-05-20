@@ -1,0 +1,39 @@
+<div class="get-data">
+  <div>
+    <input
+    type="text"
+    id="search-box"
+    (input)="file_get_data=$any($event.target).value"
+    >
+    <button
+      type="button"
+      (click)="fetchGetData(file_get_data)"
+    >Visualizar</button>
+  </div>
+  <div>
+    @if (data) {
+      @if ( data.error ) {
+        <span>{{data.error}}</span>
+      } @else {
+        <table>
+          <thead>
+            <tr>
+              @for (key of colums_key; track key) {
+                <td>{{key}}</td>
+              }
+            </tr>
+          </thead>
+          <tbody>
+            @for (inx of data.table[colums_key[0]]; track inx) {
+              <tr>
+                @for (key of colums_key; track key+$index) {
+                  <td>{{data.table[key][inx]}}</td>
+                }
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    }
+  </div>
+</div>
