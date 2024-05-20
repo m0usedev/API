@@ -1,0 +1,7 @@
+<div class="form">
+  <h1>Upload File</h1>
+  <form (submit)="onSubmit($event)">
+    <input type="file" name="file" accept=".csv" (change)="onFileChange($event)">
+    <button type="submit">Upload</button>
+  </form>
+</div>
