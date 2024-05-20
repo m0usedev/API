@@ -1,0 +1,5 @@
+﻿export const API_URL                   = 'http://127.0.0.1:8000'
+export const API_URL_GET               = API_URL+'/get/'
+export const API_URL_POST              = API_URL+'/post/'
+export const API_URL_POST_FILE_CSV     = API_URL+'/uploadfile/'
+export const API_URL_GET_FILE_CSV_DATA = API_URL+'/getfile/'
