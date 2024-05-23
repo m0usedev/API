@@ -14,8 +14,10 @@ export class GetDataCsvComponent {
   colums_key : any
 
   responseData (data : any) {
+    console.log(data)
     this.data = data
     this.colums_key = Object.keys(data.table)
+    console.log(this.colums_key)
   }
 
   async fetchGetData ( file : string ) {
