@@ -1,7 +1,16 @@
-<div class="form">
-  <h1>Upload File</h1>
-  <form (submit)="onSubmit($event)">
-    <input type="file" name="file" accept=".csv" (change)="onFileChange($event)">
-    <button type="submit">Upload</button>
+<div class="from-send-csv">
+  <form (submit)="$event.preventDefault()">
+    <div class="input-file-wrapper">
+      <label for="fileInput">Subir archivo
+        <input
+        class="input-file"
+        (input)="onSubmit($event)"
+        accept=".csv"
+        id="fileInput"
+        type="file"
+        >
+      </label>
+    </div>
   </form>
+
 </div>

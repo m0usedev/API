@@ -10,28 +10,24 @@ import { API_URL_POST_FILE_CSV } from '../../utilities/api';
 })
 export class FormSendCsvComponent {
 
-  selectedFile: File | null = null
-
-  onFileChange(event: Event) {
-    const input = event.target as HTMLInputElement
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
-    }
-  }
-
   async onSubmit(event: Event) {
-    event.preventDefault()
-    if (this.selectedFile) {
-      const formData = new FormData()
-      formData.append('file', this.selectedFile)
-      await this.fetchPostFile(formData)
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      if(input.files[0].type == 'text/csv'){
+        const formData = new FormData();
+        formData.append('file', input.files[0]);
+        await this.fetchPostFile(formData);
+      }else{
+        console.log('El fichero debe ser de tipo csv')
+      }
     } else {
-      console.error('No file selected')
+      console.error('No has seleccionado ningun fichero');
     }
   }
+
 
   async fetchPostFile ( form : FormData ) {
-    console.log("pepe")
     fetch(
       API_URL_POST_FILE_CSV,
       {
