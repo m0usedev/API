@@ -8,11 +8,12 @@ from utilites.csv_profiling import generate_profiling
 from utilites.files_func import file_exists
 from utilites.const import DIRECTORY_CSV, DIRECTORY_PROFILING
 
-app = FastAPI() # Objeto con el que manejaremos la API
-
 # Primero haz: cd .\BACK\
 # uvicorn main:app --reload
 
+app = FastAPI() # Objeto con el que manejaremos la API
+
+# Direcciones permitidas
 origins = [
   "http://localhost",
 ]
@@ -26,58 +27,17 @@ app.add_middleware(
   allow_origin_regex='http://localhost.*'
 )
 
+#Modelos de datos
 class Item(BaseModel):
 	name: str
 
-@app.get( "/get/{text}" )
-async def root ( text : str ):
-  return { "text" : text }
+# GET
+@app.get( "/test/get/" )
+async def funcPost ( text : str ):
+	return { "text" : text }
 
-@app.get( "/getfile/table/" )
-async def root ( file : str, page : int = 1 ):
-	ROW_PAGE_DIV = 25
-	print(page)
-	'''
- 	page 1 - X no puede superar el maximo
-  
-  20 filas por pagina
-  numero de filas entre 20 = numero de paginas
-  
-  json{
-		tabla
-	  numero de paginas maximo
-	}
-	'''
-	filename = f"{file}.csv"
- 
-	file_path = f"{DIRECTORY_CSV}{filename}"
-
-	if file_exists(file_path):
-		df = pd.read_csv(DIRECTORY_CSV+filename)
-  
-		#obtener num paginas
-		df_index = df.index.tolist()
-		num_pages = math.ceil(len(df_index)/ROW_PAGE_DIV)
-		# obtener filas correspondientes a pagina actial
-  
-		df_colums = df.columns.tolist()
-		df_index_name = df.index.name if df.index.name else 'index'
-	  
-		df_json = {
-			'table' : {},
-			'num_pages' : num_pages
-		}
-
-		# df_json['table'][df_index_name] = df_index
-		for c in df_colums:
-			df_json['table'][c] = df[c].to_list()
-
-		return df_json
-  
-	return { "error" : 'file not found' }
-
-@app.get( "/getfile/profile/")
-async def root ( file : str):
+@app.get( "/download/profile/")
+async def get_profile ( file : str):
 	'''
 	1. Me llega el nombre de un file
 	2. Busco el arhcivo profile.html de ese archivo
@@ -91,11 +51,12 @@ async def root ( file : str):
 	else :
 		return {"error":"el fichero no existe"}
 
-@app.post( "/post/" )
+# POST
+@app.post( "/test/post/" )
 async def funcPost ( item : Item ):
 	return { "item" : item.name }
 
-@app.post("/uploadfile/")
+@app.post("/upload/csv/")
 async def create_upload_file(file: UploadFile = File(...)):
 	file_content_type = file.content_type
  
