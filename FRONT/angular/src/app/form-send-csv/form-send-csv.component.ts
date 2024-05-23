@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { API_URL_POST_FILE_CSV } from '../../utilities/api';
+import { API_URL_UPLOAD_POST_CSV } from '../../utilities/api';
 
 @Component({
   selector: 'app-form-send-csv',
@@ -29,7 +29,7 @@ export class FormSendCsvComponent {
 
   async fetchPostFile ( form : FormData ) {
     fetch(
-      API_URL_POST_FILE_CSV,
+      API_URL_UPLOAD_POST_CSV,
       {
         method: "POST", // or 'PUT'
         body: form, // data can be `string` or {object}!

@@ -1,9 +1,8 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { API_URL_GET, API_URL_POST } from '../utilities/api';
+import { API_URL_TEST_GET, API_URL_TEST_POST } from '../utilities/api';
 
 import { FormSendCsvComponent } from './form-send-csv/form-send-csv.component';
-import { GetDataCsvComponent } from './get-data-csv/get-data-csv.component';
 import { GetProfilingComponent } from './get-profiling/get-profiling.component';
 @Component({
   selector: 'app-root',
@@ -11,7 +10,6 @@ import { GetProfilingComponent } from './get-profiling/get-profiling.component';
   imports: [
     RouterOutlet,
     FormSendCsvComponent,
-    GetDataCsvComponent,
     GetProfilingComponent
   ],
   templateUrl: './app.component.html',
@@ -20,7 +18,7 @@ import { GetProfilingComponent } from './get-profiling/get-profiling.component';
 export class AppComponent {
 
   async fetchGet ( texto : string) {
-    fetch( API_URL_GET+texto )
+    fetch( API_URL_TEST_GET+texto )
       .then( (response) => response.json() )
       .then( (data) => console.log(data) )
   }
@@ -29,7 +27,7 @@ export class AppComponent {
     var data = {"name": texto}
 
     fetch(
-      API_URL_POST,
+      API_URL_TEST_POST,
       {
         method: "POST", // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!

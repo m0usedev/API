@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { API_URL_GET_FILE_PROFILE } from '../../utilities/api';
+import { API_URL_DOWNLOAD_GET_PROFILE } from '../../utilities/api';
 
 @Component({
   selector: 'app-get-profiling',
@@ -26,7 +26,7 @@ export class GetProfilingComponent {
 
   async fetchGetData(file: string) {
     try {
-      const response = await fetch(API_URL_GET_FILE_PROFILE + '?file=' + file, {
+      const response = await fetch(API_URL_DOWNLOAD_GET_PROFILE + '?file=' + file, {
         method: "GET"
       });
 
