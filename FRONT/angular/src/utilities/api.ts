@@ -2,4 +2,6 @@
 export const API_URL_GET               = API_URL+'/get/'
 export const API_URL_POST              = API_URL+'/post/'
 export const API_URL_POST_FILE_CSV     = API_URL+'/uploadfile/'
-export const API_URL_GET_FILE_CSV_DATA = API_URL+'/getfile/'
+export const API_URL_GET_FILE          = API_URL+'/getfile/'
+export const API_URL_GET_FILE_CSV_DATA = API_URL_GET_FILE+'table/'
+export const API_URL_GET_FILE_PROFILE  = API_URL_GET_FILE+'profile/'
