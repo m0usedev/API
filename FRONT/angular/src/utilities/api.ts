@@ -1,7 +1,13 @@
-﻿export const API_URL                   = 'http://127.0.0.1:8000'
-export const API_URL_GET               = API_URL+'/get/'
-export const API_URL_POST              = API_URL+'/post/'
-export const API_URL_POST_FILE_CSV     = API_URL+'/uploadfile/'
-export const API_URL_GET_FILE          = API_URL+'/getfile/'
-export const API_URL_GET_FILE_CSV_DATA = API_URL_GET_FILE+'table/'
-export const API_URL_GET_FILE_PROFILE  = API_URL_GET_FILE+'profile/'
+﻿// main url
+export const API_URL                       = 'http://127.0.0.1:8000/'
+// test url
+export const API_URL_TEST                  = API_URL+'test/'
+export const API_URL_TEST_GET              = API_URL_TEST+'get/'
+export const API_URL_TEST_POST             = API_URL_TEST+'post/'
+// get url
+export const API_URL_DOWNLOAD              = API_URL+'download/'
+export const API_URL_DOWNLOAD_GET_PROFILE  = API_URL_DOWNLOAD+'profile/'
+// post url
+export const API_URL_UPLOAD                = API_URL+'upload/'
+export const API_URL_UPLOAD_POST_CSV       = API_URL_UPLOAD+'csv/'
+
