@@ -1,0 +1,29 @@
+.get-profiling {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .heder-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+  .button-download {
+    margin-bottom: 15px;
+  }
+  .contentFrameHtml {
+    width: 90%;
+    height: 700px;
+    border: 5px solid #0056b3;
+    border-radius: 25px;
+  }
+  *[data-visible=true],
+  *[data-stade-profiling=true]{
+    display: block;
+  }
+  *[data-visible=false],
+  *[data-stade-profiling=false]{
+    display: none;
+  }
+}

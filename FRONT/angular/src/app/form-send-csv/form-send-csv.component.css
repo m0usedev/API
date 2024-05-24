@@ -1,0 +1,20 @@
+.from-send-csv {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+
+  &[data-uploading='select']{
+    --file-background-color: #4CAF50;
+    --file-background-color-hover: #45a049;
+  }
+  &[data-uploading='upload']{
+    pointer-events: none;
+    --file-background-color: blue;
+    --file-background-color-hover:blue;
+  }
+  &[data-uploading='error']{
+    pointer-events: none;
+    --file-background-color: red;
+    --file-background-color-hover:red;
+  }
+}

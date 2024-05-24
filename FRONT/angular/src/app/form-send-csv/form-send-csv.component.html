@@ -1,7 +1,18 @@
-<div class="from-send-csv">
+<div class="from-send-csv" attr.data-uploading={{state}}>
   <form (submit)="$event.preventDefault()">
     <div class="input-file-wrapper">
-      <label for="fileInput">Subir archivo
+      <label for="fileInput">
+          @switch (state) {
+            @case ('select') {
+              Seleccionar Fichero
+            }
+            @case ('upload') {
+              Subiendo Fichero
+            }
+            @case ('error') {
+              Error
+            }
+          }
         <input
         class="input-file"
         (input)="onSubmit($event)"
@@ -12,5 +23,4 @@
       </label>
     </div>
   </form>
-
 </div>

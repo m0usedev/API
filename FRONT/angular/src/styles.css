@@ -5,6 +5,11 @@
 
 /*INPUT*/
 /*- FILE*/
+:root {
+  --file-background-color: #4CAF50;
+  --file-background-color-hover: #4CAF50;
+}
+
 .input-file-wrapper {
   position: relative;
   display: inline-block;
@@ -20,7 +25,7 @@
 }
 
 .input-file-wrapper label {
-  background-color: #4CAF50;
+  background-color: var(--file-background-color);
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -32,6 +37,70 @@
 }
 
 .input-file-wrapper label:hover {
-  background-color: #45a049;
+  background-color: var(--file-background-color-hover);
+  cursor: pointer;
 }
 
+/*- TEXT*/
+/* Estilo para el input de tipo texto */
+input[type="text"] {
+  width: 200px;
+  /* Ancho del input */
+  padding: 10px;
+  /* Espaciado interno */
+  border: 1px solid #ccc;
+  /* Borde del input */
+  border-radius: 5px;
+  /* Radio de borde */
+  outline: none;
+  /* Quita el contorno al hacer foco */
+  font-size: 16px;
+  /* Tamaño de la fuente */
+}
+
+/* Estilo para cuando el input tiene foco */
+input[type="text"]:focus {
+  border-color: #007bff;
+  /* Cambia el color del borde */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /* Agrega sombra al hacer foco */
+}
+
+/*- BUTTON*/
+/* Estilo para el botón */
+button {
+  padding: 10px 20px;
+  /* Espaciado interno */
+  background-color: #007bff;
+  /* Color de fondo del botón */
+  color: #fff;
+  /* Color del texto */
+  border: none;
+  /* Quita el borde */
+  border-radius: 5px;
+  /* Radio de borde */
+  cursor: pointer;
+  /* Cambia el cursor al pasar sobre el botón */
+  font-size: 16px;
+  /* Tamaño de la fuente */
+}
+
+/* Estilo para cuando el botón tiene foco */
+button:focus {
+  outline: none;
+  /* Quita el contorno al hacer foco */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /* Agrega sombra al hacer foco */
+}
+
+/* Estilo para cuando el botón es presionado */
+button:active {
+  background-color: #0056b3;
+  /* Cambia el color de fondo al hacer clic */
+}
+
+/* Estilo para el botón al pasar el cursor sobre él */
+button:hover {
+  background-color: #0056b3;
+  /* Cambia el color de fondo al pasar el cursor */
+}

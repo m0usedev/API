@@ -1,5 +1,5 @@
 <div class="get-profiling">
-  <div>
+  <div class="heder-content">
     <input
     type="text"
     id="search-box"
@@ -10,4 +10,20 @@
       (click)="fetchGetData(file_get_data)"
     >Visualizar</button>
   </div>
+  <div class="loading-img">
+    <img
+      attr.data-stade-profiling={{stateProfiling}}
+      src="../../assets/icons8-loading.gif"
+      alt="icons8-loading.gif"
+      title="icons8-loading.gif"
+    />
+  </div>
+  <div class="button-download">
+    <button
+    attr.data-visible={{visible}}
+    type="button"
+    (click)="downbload()"
+    >Descargar</button>
+  </div>
+  <iframe class="contentFrameHtml" attr.data-visible={{visible}} id="contentFrame"></iframe>
 </div>
