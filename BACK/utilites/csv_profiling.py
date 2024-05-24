@@ -1,9 +1,9 @@
-﻿from ydata_profiling import ProfileReport
-from .files_func import file_exists, file_delete
+﻿from pandas import DataFrame
+from ydata_profiling import ProfileReport
+from .files_func import file_exists, file_delete, form_file_path
 
-def generate_profiling(file_name, d_profiling, df):
+def generate_profiling(d_profiling : str, file_name : str, df : DataFrame):
   profile = ProfileReport(df, title=file_name)
-  file_path = f"{d_profiling}{file_name}.html"
-  if(file_exists(file_path)) :
-    file_delete(file_path)
-  profile.to_file(f"{d_profiling}{file_name}.html")
+  fp =  form_file_path(d_profiling, file_name, 'html')
+  profile.to_file(fp)
+  
